@@ -43,7 +43,9 @@ public class List {
      *  that has the same chr value as the given char,
      *  or -1 if there is no such object in this list. */
     public int indexOf(char chr) {
-        // Your code goes here
+        while (this.first != null){
+        //    if (this.first.)
+        }
         return -1;
     }
 
