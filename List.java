@@ -24,7 +24,10 @@ public class List {
 
     /** Returns the CharData of the first element in this list. */
     public CharData getFirst() {
-        // Your code goes here
+
+        if (this.first == null) {
+        return null;
+    }
         return first.cp;
     }
 
@@ -32,7 +35,7 @@ public class List {
     public void addFirst(char chr) {
 
         CharData chardata = new CharData(chr);
-        Node newfirst = new Node(chardata, first);
+        Node newfirst = new Node(chardata, this.first);
         this.first = newfirst;
         this.size ++;
     }
@@ -40,10 +43,17 @@ public class List {
     /** GIVE Textual representation of this list. */
     public String toString() {
 
+        if (first == null) return "()";
+
         String result = "(";
         Node current = this.first;
+
         while (current != null){
-            result += current.cp.toString() + " ";
+            
+            result += current.cp.toString();
+            if (current.next != null) {
+                result += " ";
+            }
             current = current.next;
         }
         return result + ")";
@@ -57,7 +67,7 @@ public class List {
         int index = 0;
         Node current = this.first;
         while (current != null){
-            if (current.cp.chr == chr){
+            if (current.cp.equals(chr)){
                 return index;
             }
             current = current.next;
